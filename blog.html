@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emiliano Gandini - Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-red': '#DC2626',
+                        'dark-bg': '#0F0F0F',
+                        'dark-card': '#1A1A1A',
+                        'dark-border': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark-bg text-white min-h-screen" x-data="{ 
+    mobileMenuOpen: false,
+    searchQuery: '',
+    posts: [
+        {
+            title: 'The latest I\'ve read about: FastAPI Boilerplate',
+            date: 'Jul 23, 2025',
+            excerpt: 'A few thoughts about a repository I came across recently. It\'s an easy way to fastly deploy a FastAPI project.',
+            tags: ['Web Development', 'Python', 'FastAPI'],
+            href: '/posts/FastAPIBoilerplate.html'
+        },
+        {
+            title: 'My Portfolio!',
+            date: 'Jul 22, 2025',
+            excerpt: 'Small presentation about myself, almost the same info that\'s present in my GitHub.',
+            tags: ['Personal'],
+            href: '/posts/MyPortfolio.html'
+        }
+    ],
+    get filteredPosts() {
+        if (!this.searchQuery) return this.posts;
+        return this.posts.filter(post => 
+            post.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            post.excerpt.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+            post.tags.some(tag => tag.toLowerCase().includes(this.searchQuery.toLowerCase()))
+        );
+    }
+}">
+    <!-- Navigation -->
+    <nav class="bg-dark-card border-b border-dark-border sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-dark-red">EG</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="blog.html" class="text-dark-red px-3 py-2 text-sm font-medium">Blog</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-dark-card border-t border-dark-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="projects.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Projects</a>
+                <a href="blog.html" class="text-dark-red block px-3 py-2 text-base font-medium">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">My Blog.</h1>
+        <p class="text-xl text-gray-400 max-w-2xl mb-8">
+            Thoughts, experiences, and learnings from my journey in software development.
+        </p>
+        
+        <!-- Search Bar -->
+        <div class="relative max-w-md">
+            <input 
+                type="text" 
+                x-model="searchQuery"
+                placeholder="Search posts..." 
+                class="w-full bg-dark-card border border-dark-border rounded-lg px-4 py-3 pl-12 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+            >
+            <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="space-y-8">
+            <!-- Copy and paste these blog post cards to add more posts -->
+            <template x-for="post in filteredPosts" :key="post.title">
+                <article class="bg-dark-card p-8 rounded-lg border border-dark-border hover:border-dark-red transition-colors">
+                    <div class="flex justify-between items-start mb-4">
+                        <h2 class="text-2xl font-semibold hover:text-dark-red transition-colors cursor-pointer" x-text="post.title"></h2>
+                        <span class="text-sm text-gray-400 whitespace-nowrap ml-4" x-text="post.date"></span>
+                    </div>
+                    
+                    <p class="text-gray-400 mb-6" x-text="post.excerpt"></p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <template x-for="tag in post.tags" :key="tag">
+                            <span class="bg-dark-red bg-opacity-20 text-dark-red px-3 py-1 rounded-full text-sm" x-text="tag"></span>
+                        </template>
+                    </div>
+                    
+                    <a :href="post.href" class="text-dark-red hover:text-red-400 font-medium transition-colors">
+                        Read more →
+                    </a>
+                </article>
+            </template>
+            
+            <!-- No results message -->
+            <div x-show="filteredPosts.length === 0" class="text-center py-12">
+                <i class="fas fa-search text-4xl text-gray-600 mb-4"></i>
+                <p class="text-gray-400 text-lg">No posts found matching your search.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-card border-t border-dark-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 Emiliano Gandini. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/emiliano-gandini-outeda" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/emiliano-gandini-outeda" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="contact.html" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
