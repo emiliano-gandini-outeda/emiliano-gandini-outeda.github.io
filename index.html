@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emiliano Gandini - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-red': '#DC2626',
+                        'dark-bg': '#0F0F0F',
+                        'dark-card': '#1A1A1A',
+                        'dark-border': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/svg+xml">
+</head>
+<body class="bg-dark-bg text-white min-h-screen" x-data="{ mobileMenuOpen: false }">
+    <!-- Navigation -->
+    <nav class="bg-dark-card border-b border-dark-border sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-dark-red">EG</a>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-dark-red px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="blog.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Blog</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-dark-card border-t border-dark-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-dark-red block px-3 py-2 text-base font-medium">Home</a>
+                <a href="projects.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Projects</a>
+                <a href="blog.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    hi, <span class="text-dark-red">Emiliano</span> here.
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-4">
+                    19 y/o software engineer from <span class="text-dark-red">Uruguay</span> 🌍
+                </p>
+                <p class="text-lg text-gray-400 mb-8">
+                    Started by curiosity, stayed for the love of the game ❤️
+                </p>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-4">
+                    <a href="#" class="bg-dark-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-download mr-2"></i>Resume
+                    </a>
+                    <a href="https://www.linkedin.com/in/emiliano-gandini-outeda/" target="_blank" class="border border-dark-border hover:border-dark-red text-gray-300 hover:text-dark-red px-6 py-3 rounded-lg font-medium transition-colors">
+                        <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                    </a>
+                    <a href="https://github.com/emiliano-gandini-outeda" target="_blank" class="border border-dark-border hover:border-dark-red text-gray-300 hover:text-dark-red px-6 py-3 rounded-lg font-medium transition-colors">
+                        <i class="fab fa-github mr-2"></i>GitHub
+                    </a>
+                    <a href="contact.html" class="border border-dark-border hover:border-dark-red text-gray-300 hover:text-dark-red px-6 py-3 rounded-lg font-medium transition-colors">
+                        <i class="fas fa-envelope mr-2"></i>Contact
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Profile Photo -->
+            <div class="flex justify-center lg:justify-end">
+                <div class="w-80 h-80 bg-dark-card rounded-full border-4 border-dark-red flex items-center justify-center">
+                    <img src="pfp.jpg" alt="Profile Picture" class="rounded-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h2 class="text-3xl font-bold mb-12 text-center">My Technologies & Tools</h2>
+        
+        <!-- Frontend -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-6 text-dark-red">Frontend</h3>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                <!-- Copy and paste these tech cards to add more technologies -->
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-orange-500 border border-dark-border transition-colors">
+                    <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
+                    <p class="text-sm">HTML5</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-blue-500 border border-dark-border transition-colors">
+                    <i class="fab fa-css3-alt text-4xl text-blue-500 mb-3"></i>
+                    <p class="text-sm">CSS3</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-yellow-500 border border-dark-border transition-colors">
+                    <i class="fab fa-js-square text-4xl text-yellow-500 mb-3"></i>
+                    <p class="text-sm">JavaScript</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-[#77c1d2] border border-dark-border transition-colors">
+                    <i class="fas text-4xl text-green-500 mb-3">  <img 
+                        src="https://avatars.githubusercontent.com/u/59030169?s=200&v=4" 
+                        alt="Alpine.js Logo" 
+                        class="w-10 h-10 rounded-lg"
+                    /></i>
+                    <p class="text-sm">Alpine.js</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-cyan-500 border border-dark-border transition-colors">
+                    <i class="fas text-4xl text-cyan-500 mb-3">
+                        <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" 
+                        alt="TailwindCSS Logo" 
+                        class="w-10 h-10 rounded-lg"/>
+                    </i>
+                    <p class="text-sm">Tailwind</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Backend -->
+        <div class="mb-12">
+            <h3 class="text-xl font-semibold mb-6 text-dark-red">Backend</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-blue-500 border border-dark-border transition-colors">
+                    <i class="fab text-4xl text-blue-500 mb-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
+                        alt="Python Logo" 
+                        class="w-11 h-11 rounded-lg"/>                        
+                    </i>
+                    <p class="text-sm">Python</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-[#009688] border border-dark-border transition-colors">
+                    <i class="fas text-4xl text-green-600 mb-3">
+                        <img src="https://avatars.githubusercontent.com/u/156354296?s=200&v=4" 
+                        alt="FastAPI Logo" 
+                        class="w-10 h-10 rounded-lg"/>
+                    </i>
+                    <p class="text-sm">FastAPI</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-green-700 border border-dark-border transition-colors">
+                    <i class="fab text-4xl text-green-700 mb-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" 
+                        alt="Django Logo" 
+                        class="w-10 h-10 rounded-lg"/>
+                    </i>
+                    <p class="text-sm">Django</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools -->
+        <div>
+            <h3 class="text-xl font-semibold mb-6 text-dark-red">Tools</h3>
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-6">
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-orange-600 border border-dark-border transition-colors">
+                    <i class="fab fa-git-alt text-4xl text-orange-600 mb-3"></i>
+                    <p class="text-sm">Git</p>
+                </div>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-blue-600 border border-dark-border transition-colors">
+                    <i class="fas fastext-4xl text-blue-600 mb-3">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" 
+                        alt="PostgreSQL Logo" 
+                        class="w-10 h-10 rounded-lg"/>
+                    </i>
+                    <p class="text-sm">PostgreSQL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16" x-data="{ activeTab: 'work' }">
+        <div class="flex justify-center mb-8">
+            <div class="bg-dark-card rounded-lg p-1">
+                <button @click="activeTab = 'work'" 
+                        :class="activeTab === 'work' ? 'bg-dark-red text-white' : 'text-gray-400 hover:text-white'"
+                        class="px-6 py-2 rounded-md font-medium transition-colors">
+                    Work
+                </button>
+                <button @click="activeTab = 'education'" 
+                        :class="activeTab === 'education' ? 'bg-dark-red text-white' : 'text-gray-400 hover:text-white'"
+                        class="px-6 py-2 rounded-md font-medium transition-colors">
+                    Education
+                </button>
+            </div>
+        </div>
+
+        <!-- Work Tab -->
+        <div x-show="activeTab === 'work'" x-transition class="space-y-8">
+            <!-- Copy and paste these work experience cards to add more positions -->
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Development Director</h3>
+                        <p class="text-gray-300">Eclipse Growth Optimization Services</p>
+                    </div>
+                    <span class="text-sm text-gray-400">May 2025 - Present</span>
+                </div>
+                <p class="text-gray-400">Leading development of scalable web applications for data analysis with Pandas.</p>
+            </div>
+        </div>
+
+        <!-- Education Tab -->
+        <div x-show="activeTab === 'education'" x-transition class="space-y-8">
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Bachelor’s Degree in Engineering, Computer Science</h3>
+                        <p class="text-gray-300">Facultad de Ingenieria, Universidad de la Republica</p>
+                    </div>
+                    <span class="text-sm text-gray-400">2025 - 2030</span>
+                </div>
+                <div class="space-y-2 text-gray-400">
+                    <p>• Relevant coursework: Data Structures, Algorithms, System Architecture</p>
+                </div>
+                <div class="mt-4 space-x-4">
+                    <button class="bg-dark-red hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                        Final Year Project (WIP)
+                    </button>
+                </div>
+            </div>
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Course - HTML, CSS, and Javascript for Web Developers</h3>
+                        <p class="text-gray-300">Johns Hopkins University</p>
+                    </div>
+                    <span class="text-sm text-gray-400">Jan 2022 - Jul 2022</span>
+                </div>
+                <div class="space-y-2 text-gray-400">
+                    <p>• Specialized in Functional Web Design</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-3xl font-bold">Public projects</h2>
+            <a href="projects.html" class="text-dark-red hover:text-red-400 font-medium transition-colors">
+                view more →
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Copy and paste these project cards to add more featured projects -->
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center">
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">devBot</h3>
+                <p class="text-gray-400 mb-4">A comprehensive Discord bot designed to streamline community management with powerful automation, integrations, and administrative tools.</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Python</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://github.com/emiliano-gandini-outeda/devbot" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
+                        <i class="fab fa-github mr-1"></i>Source
+                    </a>
+                    <a href="https://www.ego-services.com/devbot" target="_blank" class="text-dark-red hover:text-red-400 font-medium transition-colors">
+                        <i class="fas fa-external-link-alt mr-1"></i>Website
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center">
+                    <i class="fas fa-image text-4xl text-gray-600"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">CourseTrackr</h3>
+                <p class="text-gray-400 mb-4">A tool for users to create custom courses for themselves and others. Small side-project to improve my Django skills, centered around user management. </p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Python</span>
+                    <span class="bg-green-700 text-white px-2 py-1 rounded text-xs">Django</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://github.com/emiliano-gandini-outeda/CourseTrackr" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
+                        <i class="fab fa-github mr-1"></i>Source
+                    </a>
+                    <a href="#" class="text-dark-red hover:text-red-400 font-medium transition-colors">
+                        <i class="fas fa-external-link-alt mr-1"></i>Website (WIP)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Posts Section -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="flex justify-between items-center mb-12">
+            <h2 class="text-3xl font-bold">Recent posts</h2>
+            <a href="blog.html" class="text-dark-red hover:text-red-400 font-medium transition-colors">
+                view more →
+            </a>
+        </div>
+
+        <div class="space-y-6">
+            <!-- Copy and paste these blog post previews to add more recent posts -->
+            <article class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="text-xl font-semibold hover:text-dark-red transition-colors cursor-pointer">
+                        Lorem ipsum dolor sit amet consectetur adipisicing eli
+                    </h3>
+                    <span class="text-sm text-gray-400">Dec 15, 2024</span>
+                </div>
+                <p class="text-gray-400">Filler Text</p>
+            </article>
+
+            <article class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="text-xl font-semibold hover:text-dark-red transition-colors cursor-pointer">
+                        Lorem ipsum dolor sit amet consectetur adipisicing eli
+                    </h3>
+                    <span class="text-sm text-gray-400">Nov 28, 2024</span>
+                </div>
+                <p class="text-gray-400">Filler Text</p>
+            </article>
+
+            <article class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors">
+                <div class="flex justify-between items-start mb-3">
+                    <h3 class="text-xl font-semibold hover:text-dark-red transition-colors cursor-pointer">
+                        Lorem ipsum dolor sit amet consectetur adipisicing eli
+                    </h3>
+                    <span class="text-sm text-gray-400">Nov 10, 2024</span>
+                </div>
+                <p class="text-gray-400">Filler Text</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-card border-t border-dark-border mt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 Emiliano Gandini. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/emiliano-gandini-outeda" target="_blank" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/emiliano-gandini-outeda" target="_blank" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="contact.html" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
