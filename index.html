@@ -107,39 +107,43 @@
 
     <!-- Tech Stack Section -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 class="text-3xl font-bold mb-12 text-center">My Technologies & Tools</h2>
+        <h2 class="text-3xl font-bold mb-12 text-center">My Technologies Stack</h2>
         
         <!-- Frontend -->
         <div class="mb-12">
             <h3 class="text-xl font-semibold mb-6 text-dark-red">Frontend</h3>
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
-                <!-- Copy and paste these tech cards to add more technologies -->
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-orange-500 border border-dark-border transition-colors">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-orange-500 border border-dark-border transition-colors w-full">
                     <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
                     <p class="text-sm">HTML5</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-blue-500 border border-dark-border transition-colors">
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-blue-500 border border-dark-border transition-colors w-full">
                     <i class="fab fa-css3-alt text-4xl text-blue-500 mb-3"></i>
                     <p class="text-sm">CSS3</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-yellow-500 border border-dark-border transition-colors">
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-yellow-500 border border-dark-border transition-colors w-full">
                     <i class="fab fa-js-square text-4xl text-yellow-500 mb-3"></i>
                     <p class="text-sm">JavaScript</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-[#77c1d2] border border-dark-border transition-colors">
-                    <i class="fas text-4xl text-green-500 mb-3">  <img 
-                        src="https://avatars.githubusercontent.com/u/59030169?s=200&v=4" 
-                        alt="Alpine.js Logo" 
-                        class="w-10 h-10 rounded-lg"
-                    /></i>
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-[#77c1d2] border border-dark-border transition-colors w-full">
+                    <div class="w-10 h-10 mb-3 mx-auto">
+                        <img 
+                            src="https://avatars.githubusercontent.com/u/59030169?s=200&v=4" 
+                            alt="Alpine.js Logo" 
+                            class="w-full h-full rounded-lg object-contain"
+                        />
+                    </div>
                     <p class="text-sm">Alpine.js</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-cyan-500 border border-dark-border transition-colors">
-                    <i class="fas text-4xl text-cyan-500 mb-3">
-                        <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" 
-                        alt="TailwindCSS Logo" 
-                        class="w-10 h-10 rounded-lg"/>
-                    </i>
+                <!-- Última tarjeta con comportamiento adaptativo -->
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-cyan-500 border border-dark-border transition-colors w-full sm:col-span-2 md:col-span-1">
+                    <div class="w-10 h-10 mb-3 mx-auto">
+                        <img 
+                            src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" 
+                            alt="TailwindCSS Logo" 
+                            class="w-full h-full rounded-lg object-contain"
+                        />
+                    </div>
                     <p class="text-sm">Tailwind</p>
                 </div>
             </div>
@@ -148,28 +152,29 @@
         <!-- Backend -->
         <div class="mb-12">
             <h3 class="text-xl font-semibold mb-6 text-dark-red">Backend</h3>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-blue-500 border border-dark-border transition-colors">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-blue-500 border border-dark-border transition-colors w-full">
                     <i class="fab text-4xl text-blue-500 mb-3">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" 
-                        alt="Python Logo" 
-                        class="w-11 h-11 rounded-lg"/>                        
+                             alt="Python Logo" 
+                             class="w-11 h-11 rounded-lg"/>
                     </i>
                     <p class="text-sm">Python</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-[#009688] border border-dark-border transition-colors">
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-[#009688] border border-dark-border transition-colors w-full">
                     <i class="fas text-4xl text-green-600 mb-3">
                         <img src="https://avatars.githubusercontent.com/u/156354296?s=200&v=4" 
-                        alt="FastAPI Logo" 
-                        class="w-10 h-10 rounded-lg"/>
+                             alt="FastAPI Logo" 
+                             class="w-10 h-10 rounded-lg"/>
                     </i>
                     <p class="text-sm">FastAPI</p>
                 </div>
-                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-green-700 border border-dark-border transition-colors">
+                <!-- Última tarjeta con col-span adaptativo -->
+                <div class="bg-dark-card p-6 rounded-lg text-center hover:border-green-700 border border-dark-border transition-colors w-full sm:col-span-2 md:col-span-1">
                     <i class="fab text-4xl text-green-700 mb-3">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" 
-                        alt="Django Logo" 
-                        class="w-10 h-10 rounded-lg"/>
+                             alt="Django Logo" 
+                             class="w-10 h-10 rounded-lg"/>
                     </i>
                     <p class="text-sm">Django</p>
                 </div>
@@ -275,17 +280,21 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <!-- Copy and paste these project cards to add more featured projects -->
             <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group">
-                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center">
-                    <img src="devBot-banner.png" alt="devBot" class="rounded-lg">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="devbot-banner.jpg" alt="devBot" class="rounded-lg object-cover w-full h-full object-left">
                 </div>
+
                 <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">devBot</h3>
-                <p class="text-gray-400 mb-4">A comprehensive Discord bot designed to streamline community management with powerful automation, integrations, and administrative tools.</p>
-                
+
+                <p class="text-gray-400 mb-4">
+                    A comprehensive Discord bot designed to streamline community management with powerful automation, integrations, and administrative tools.
+                </p>
+            
                 <div class="flex flex-wrap gap-2 mb-4">
                     <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Python</span>
                     <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
                 </div>
-                
+            
                 <div class="flex space-x-4">
                     <a href="https://github.com/emiliano-gandini-outeda/devbot" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
                         <i class="fab fa-github mr-1"></i>Source
@@ -298,7 +307,7 @@
 
             <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group">
                 <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center">
-                    <i class="fas fa-image text-4xl text-gray-600"></i>
+                    <img src="CourseTrackr-Banner.png" alt="CourseTrackr" class="rounded-lg object-cover w-full h-full object-left">
                 </div>
                 <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">CourseTrackr</h3>
                 <p class="text-gray-400 mb-4">A tool for users to create custom courses for themselves and others. Small side-project to improve my Django skills, centered around user management. </p>
