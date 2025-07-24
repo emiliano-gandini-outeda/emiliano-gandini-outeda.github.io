@@ -322,9 +322,25 @@
                     <a href="https://github.com/emiliano-gandini-outeda/CourseTrackr" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
                         <i class="fab fa-github mr-1"></i>Source
                     </a>
-                    <a class="text-dark-red hover:text-red-400 font-medium transition-colors">
+                    <div 
+                        x-data="{ showTooltip: false }" 
+                        class="relative inline-block"
+                        @mouseenter="showTooltip = true" 
+                        @mouseleave="showTooltip = false"
+                    >
+                    <a class="text-dark-red hover:text-red-400 font-medium transition-colors line-through">
                         <i class="fas fa-external-link-alt mr-1"></i>Website (WIP)
                     </a>
+                        
+                        <!-- Tooltip -->
+                        <div 
+                            x-show="showTooltip" 
+                            x-transition 
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-gray-800 text-sm text-white px-3 py-1 rounded-lg shadow-lg z-10 whitespace-nowrap"
+                        >
+                            Frontend not available
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

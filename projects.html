@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emiliano Gandini - Projects</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-red': '#DC2626',
+                        'dark-bg': '#0F0F0F',
+                        'dark-card': '#1A1A1A',
+                        'dark-border': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark-bg text-white min-h-screen" x-data="{ mobileMenuOpen: false }">
+    <!-- Navigation -->
+    <nav class="bg-dark-card border-b border-dark-border sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-dark-red">EG</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="projects.html" class="text-dark-red px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="blog.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Blog</a>
+                        <a href="contact.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-dark-card border-t border-dark-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="projects.html" class="text-dark-red block px-3 py-2 text-base font-medium">Projects</a>
+                <a href="blog.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Blog</a>
+                <a href="contact.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Header -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">My projects</h1>
+        <p class="text-xl text-gray-400 max-w-2xl">
+            A collection of projects I've worked on, from web applications to bots and everything in between.
+        </p>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 auto-rows-fr">
+            <!-- Copy and paste these project cards to add more projects -->
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group flex flex-col">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="devbot-banner.jpg" alt="devBot" class="rounded-lg object-cover w-full h-full object-left">
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">devBot</h3>
+                <p class="text-gray-400 mb-4 flex-grow">A comprehensive Discord bot designed to streamline community management for open source projects with powerful automation, integrations, and administrative tools.</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Python</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
+                </div>
+                
+                <div class="flex space-x-4 mt-auto">
+                    <a href="https://github.com/emiliano-gandini-outeda/devbot" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
+                        <i class="fab fa-github mr-1"></i>Source
+                    </a>
+                    <a href="https://www.ego-services.com/devbot" target="_blank" class="text-dark-red hover:text-red-400 font-medium transition-colors">
+                        <i class="fas fa-external-link-alt mr-1"></i>Website
+                    </a>
+                </div>
+            </div>
+
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group flex flex-col">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="CourseTrackr-Banner.png" alt="CourseTrackr" class="rounded-lg object-cover w-full h-full object-left">
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">CourseTrackr</h3>
+                <p class="text-gray-400 mb-4 flex-grow">A web app that lets users create and share custom courses. Built as a side project to strengthen my Django skills, with a focus on user management and authentication.</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Python</span>
+                    <span class="bg-green-700 text-white px-2 py-1 rounded text-xs">Django</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
+                </div>
+                
+                <div class="flex space-x-4 mt-auto">
+                    <a href="https://github.com/emiliano-gandini-outeda/CourseTrackr" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
+                        <i class="fab fa-github mr-1"></i>Source
+                    </a>
+                    <div 
+                        x-data="{ showTooltip: false }" 
+                        class="relative inline-block"
+                        @mouseenter="showTooltip = true" 
+                        @mouseleave="showTooltip = false"
+                    >
+                    <a class="text-dark-red hover:text-red-400 font-medium transition-colors line-through">
+                        <i class="fas fa-external-link-alt mr-1"></i>Website (WIP)
+                    </a>
+                        
+                        <!-- Tooltip -->
+                        <div 
+                            x-show="showTooltip" 
+                            x-transition 
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-gray-800 text-sm text-white px-3 py-1 rounded-lg shadow-lg z-10 whitespace-nowrap"
+                        >
+                            Frontend not available
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group flex flex-col">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center overflow-hidden">
+                    <img src="InsightGrid-banner.jpg" alt="InsightGrid" class="rounded-lg object-cover w-full h-full object-left">
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">InsightGrid</h3>
+                <p class="text-gray-400 mb-4 flex-grow">
+                    A powerful web application platform designed to host custom data treatment and linking tools tailored specifically for each client's unique needs.
+                    <br>
+                    Project from <a href="https://www.ego-services.com/insightgrid" class="underline text-dark-red hover:text-red-400 font-semibold" target="_blank" rel="noopener noreferrer">EGOS</a>
+                </p>                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Python</span>
+                    <span class="bg-[#009688] text-white px-2 py-1 rounded text-xs">FastAPI</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
+                </div>
+                
+                <div class="flex space-x-4 mt-auto">
+                    <div 
+                        x-data="{ showTooltip: false }" 
+                        class="relative inline-block"
+                        @mouseenter="showTooltip = true" 
+                        @mouseleave="showTooltip = false"
+                    >
+                        <a 
+                            class="text-gray-400 hover:text-white font-medium transition-colors line-through cursor-not-allowed"
+                        >
+                            <i class="fab fa-github mr-1"></i>Source
+                        </a>
+                        
+                        <!-- Tooltip -->
+                        <div 
+                            x-show="showTooltip" 
+                            x-transition 
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-gray-800 text-sm text-white px-3 py-1 rounded-lg shadow-lg z-10 whitespace-nowrap"
+                        >
+                            Source code is private due to Privacy
+                        </div>
+                    </div>
+                    <div 
+                        x-data="{ showTooltip: false }" 
+                        class="relative inline-block"
+                        @mouseenter="showTooltip = true" 
+                        @mouseleave="showTooltip = false"
+                    >
+                    <a class="text-dark-red hover:text-red-400 font-medium transition-colors line-through">
+                        <i class="fas fa-external-link-alt mr-1"></i>Public Demo (WIP)
+                    </a>
+                        
+                        <!-- Tooltip -->
+                        <div 
+                            x-show="showTooltip" 
+                            x-transition 
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-gray-800 text-sm text-white px-3 py-1 rounded-lg shadow-lg z-10 whitespace-nowrap"
+                        >
+                            Public Demo Not Available
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group flex flex-col">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center">
+                    <div class="relative inline-block">
+                    <i class="fas fa-image text-4xl text-gray-600"></i>
+                    <span class="absolute top-0 right-0 bg-yellow-500 text-white text-[10px] px-1.5 py-0.5 rounded-full font-bold">WIP</span>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">InvenFlow</h3>
+                <p class="text-gray-400 mb-4 flex-grow">A multiplatform inventory app built to learn Flutter and Dart, using Django and PostgreSQL for real-time stock tracking and role-based control across multiple stores.</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-[#0175C2] text-white px-2 py-1 rounded text-xs">Dart</span>
+                    <span class="bg-green-700 text-white px-2 py-1 rounded text-xs">Django</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
+                </div>
+                
+                <div class="flex space-x-4 mt-auto">
+                    <div 
+                        x-data="{ showTooltip: false }" 
+                        class="relative inline-block"
+                        @mouseenter="showTooltip = true" 
+                        @mouseleave="showTooltip = false"
+                    >
+                        <a 
+                            class="text-gray-400 hover:text-white font-medium transition-colors line-through cursor-not-allowed"
+                        >
+                            <i class="fab fa-github mr-1"></i>Source
+                        </a>
+                        
+                        <!-- Tooltip -->
+                        <div 
+                            x-show="showTooltip" 
+                            x-transition 
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-gray-800 text-sm text-white px-3 py-1 rounded-lg shadow-lg z-10 whitespace-nowrap"
+                        >
+                            Source code temporarily private
+                        </div>
+                    </div>
+                    <div 
+                        x-data="{ showTooltip: false }" 
+                        class="relative inline-block"
+                        @mouseenter="showTooltip = true" 
+                        @mouseleave="showTooltip = false"
+                    >
+                    <a class="text-dark-red hover:text-red-400 font-medium transition-colors line-through">
+                        <i class="fas fa-external-link-alt mr-1"></i>Demo (WIP)
+                    </a>
+                        
+                        <!-- Tooltip -->
+                        <div 
+                            x-show="showTooltip" 
+                            x-transition 
+                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-gray-800 text-sm text-white px-3 py-1 rounded-lg shadow-lg z-10 whitespace-nowrap"
+                        >
+                            Demo Not Available
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-card border-t border-dark-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 Emiliano Gandini. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/emiliano-gandini-outeda" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/emiliano-gandini-outeda" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="contact.html" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
