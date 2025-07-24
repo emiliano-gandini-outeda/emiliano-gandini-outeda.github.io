@@ -170,12 +170,87 @@
 
             <!-- Contact Form -->
             <div class="bg-dark-card p-8 rounded-lg border border-dark-border">
-                <form action="https://formsubmit.co/emiliano.outeda@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="Name" required>
-  <input type="email" name="email" placeholder="Email" required>
-  <textarea name="message" placeholder="Message" required></textarea>
-  <button type="submit">Send</button>
-</form>
+                <form 
+                    action="https://formsubmit.co/emiliano.outeda@gmail.com" 
+                    method="POST"
+                    class="space-y-6"
+                >
+                    <!-- FormSubmit Configuration (Hidden Fields) -->
+                    <input type="hidden" name="_subject" value="New Contact Form Message from Portfolio">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="basic">
+                    <input type="hidden" name="_next" value="https://emiliano-gandini-outeda.github.io/thank-you.html">
+                    <input type="hidden" name="_autoresponse" value="Thank you for sending a message! I'll reach you as soon as possible.">
+                    
+                    <!-- Honeypot for spam protection -->
+                    <input type="text" name="_honey" style="display:none">
+                    
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name *</label>
+                        <input 
+                            type="text" 
+                            id="name"
+                            name="name"
+                            x-model="formData.name"
+                            required
+                            class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+                            placeholder="Your full name"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email"
+                            name="email"
+                            x-model="formData.email"
+                            required
+                            class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message *</label>
+                        <textarea 
+                            id="message"
+                            name="message"
+                            x-model="formData.message"
+                            required
+                            rows="6"
+                            class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors resize-none"
+                            placeholder="Leave feedback about the site, career opportunities or just to say hello etc."
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Additional Fields for Better Context -->
+                    <div class="grid grid-cols-1 gap-4">                        
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company (Optional)</label>
+                            <input 
+                                type="text" 
+                                id="company"
+                                name="company"
+                                class="w-full h-16 bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+                                placeholder="Your company name"
+                            >
+                        </div>
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        :disabled="isSubmitting"
+                        :class="isSubmitting ? 'bg-gray-600 cursor-not-allowed' : 'bg-dark-red hover:bg-red-700'"
+                        class="w-full text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+                    >
+                        <span x-show="!isSubmitting">Send Message</span>
+                        <span x-show="isSubmitting" class="flex items-center">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>
+                            Sending...
+                        </span>
+                    </button>
+                </form>
             </div>
         </div>
     </section>
