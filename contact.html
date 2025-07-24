@@ -24,38 +24,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-dark-bg text-white min-h-screen" x-data="{ 
-    mobileMenuOpen: false,
-    formData: {
-        name: '',
-        email: '',
-        message: '',
-    },
-    isSubmitting: false,
-    showSuccessMessage: false,
-    
-    submitForm() {
-        // Basic validation
-        if (!this.formData.name || !this.formData.email || !this.formData.message) {
-            alert('Please fill in all required fields.');
-            return;
-        }
-        
-        this.isSubmitting = true;
-        // FormSubmit will handle the actual submission
-        // The success message will be shown via URL parameter or redirect
-    },
-    
-    checkForSuccess() {
-        // Check if we're returning from a successful submission
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('success') === 'true') {
-            this.showSuccessMessage = true;
-            // Clean up URL
-            window.history.replaceState({}, document.title, window.location.pathname);
-        }
-    }
-}"
-@load.window="checkForSuccess()">
+    mobileMenuOpen: false
+}">
     <!-- Navigation -->
     <nav class="bg-dark-card border-b border-dark-border sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -153,25 +123,9 @@
             </div>
             
             <!-- Contact Form -->
-            <!-- Success Message -->
-            <div x-show="showSuccessMessage" x-transition class="mb-8">
-                <div class="bg-green-900 bg-opacity-20 border border-green-600 rounded-lg p-4">
-                    <div class="flex items-start">
-                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
-                        <div>
-                            <h4 class="font-semibold text-green-400 mb-2">Message Sent Successfully!</h4>
-                            <p class="text-green-200 text-sm">
-                                Thank you for reaching out. I'll get back to you as soon as possible, usually within 24 hours.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Form -->
             <div class="bg-dark-card p-8 rounded-lg border border-dark-border">
                 <form 
-                    action="https://formsubmit.co/02762df790e8511d6b83999555bca4b7" 
+                    action="https://formsubmit.co/emiliano.outeda@gmail.com" 
                     method="POST"
                     class="space-y-6"
                     novalidate
@@ -192,7 +146,6 @@
                             type="text" 
                             id="name"
                             name="name"
-                            x-model="formData.name"
                             required
                             class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
                             placeholder="Your full name"
@@ -205,7 +158,6 @@
                             type="email" 
                             id="email"
                             name="email"
-                            x-model="formData.email"
                             required
                             class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
                             placeholder="your.email@example.com"
@@ -217,7 +169,6 @@
                         <textarea 
                             id="message"
                             name="message"
-                            x-model="formData.message"
                             required
                             rows="6"
                             class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors resize-none"
@@ -225,31 +176,23 @@
                         ></textarea>
                     </div>
                     
-                    <!-- Additional Fields for Better Context -->
-                    <div class="grid grid-cols-1 gap-4">                        
-                        <div>
-                            <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company (Optional)</label>
-                            <input 
-                                type="text" 
-                                id="company"
-                                name="company"
-                                class="w-full h-16 bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
-                                placeholder="Your company name"
-                            >
-                        </div>
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company (Optional)</label>
+                        <input 
+                            type="text" 
+                            id="company"
+                            name="company"
+                            class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+                            placeholder="Your company name"
+                        >
                     </div>
                     
                     <button 
                         type="submit"
-                        :disabled="isSubmitting"
-                        :class="isSubmitting ? 'bg-gray-600 cursor-not-allowed' : 'bg-dark-red hover:bg-red-700'"
-                        class="w-full text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+                        class="w-full bg-dark-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
                     >
-                        <span x-show="!isSubmitting">Send Message</span>
-                        <span x-show="isSubmitting" class="flex items-center">
-                            <i class="fas fa-spinner fa-spin mr-2"></i>
-                            Sending...
-                        </span>
+                        <i class="fas fa-paper-plane mr-2"></i>
+                        Send Message
                     </button>
                 </form>
             </div>
