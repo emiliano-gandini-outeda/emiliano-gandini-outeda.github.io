@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emiliano Gandini - Blog Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-red': '#DC2626',
+                        'dark-bg': '#0F0F0F',
+                        'dark-card': '#1A1A1A',
+                        'dark-border': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <link rel="icon" href="../static/favicon.ico" type="image/svg+xml">
+</head>
+<body class="bg-dark-bg text-white min-h-screen" x-data="{ 
+    mobileMenuOpen: false,
+    tocOpen: false,
+    readingProgress: 0,
+    liked: false,
+    bookmarked: false,
+    shareDropdownOpen: false,
+    
+    updateReadingProgress() {
+        const article = document.querySelector('article');
+        const scrollTop = window.scrollY;
+        const docHeight = article.offsetHeight;
+        const winHeight = window.innerHeight;
+        const scrollPercent = scrollTop / (docHeight - winHeight);
+        this.readingProgress = Math.min(100, Math.max(0, scrollPercent * 100));
+    },
+    
+    copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('Link copied to clipboard!');
+        });
+    },
+    
+    sharePost(platform) {
+        const url = window.location.href;
+        const title = 'Blog Title';
+    
+        
+        if (shareUrls[platform]) {
+            window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+        }
+        
+        this.shareDropdownOpen = false;
+    }
+}" 
+@scroll.window="updateReadingProgress()"
+@load.window="updateReadingProgress()">
+
+    <!-- Reading Progress Bar -->
+    <div class="fixed top-0 left-0 w-full h-1 bg-dark-border z-50">
+        <div class="h-full bg-dark-red transition-all duration-150 ease-out" :style="`width: ${readingProgress}%`"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-dark-card border-b border-dark-border sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="text-xl font-bold text-dark-red">EG</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="../index.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="../projects.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="../blog.html" class="text-dark-red px-3 py-2 text-sm font-medium">Blog</a>
+                        <a href="../contact.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-dark-card border-t border-dark-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="../index.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="../projects.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Projects</a>
+                <a href="../blog.html" class="text-dark-red block px-3 py-2 text-base font-medium">Blog</a>
+                <a href="../contact.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Back to Blog Link -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        <a href="../blog.html" class="inline-flex items-center text-gray-400 hover:text-dark-red transition-colors">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to Blog
+        </a>
+    </div>
+
+    <!-- Article Header -->
+    <header class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center">
+            <!-- Tags -->
+            <div class="flex flex-wrap justify-center gap-2 mb-6">
+                <!-- Copy and paste these tag elements to add more tags -->
+                <span class="bg-dark-red bg-opacity-20 text-dark-red px-3 py-1 rounded-full text-sm">Web Development</span>
+                <span class="bg-dark-red bg-opacity-20 text-dark-red px-3 py-1 rounded-full text-sm">Backend</span>
+                <span class="bg-dark-red bg-opacity-20 text-dark-red px-3 py-1 rounded-full text-sm">FastAPI</span>
+            </div>
+            
+            <!-- Title -->
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                The latest I've read about: <br> FastAPI Boilerplate
+            </h1>
+            
+            <!-- Meta Information -->
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-8 text-gray-400">                
+                <div class="flex items-center space-x-6 text-sm">
+                    <span class="flex items-center">
+                        <i class="fas fa-calendar mr-2"></i>
+                        Jul 23, 2025
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Table of Contents (Floating) -->
+    <div class="fixed right-8 top-1/2 transform -translate-y-1/2 hidden xl:block z-30">
+        <div class="bg-dark-card border border-dark-border rounded-lg p-4 max-w-xs">
+            <button @click="tocOpen = !tocOpen" class="flex items-center justify-between w-full text-left mb-3">
+                <span class="font-medium text-sm pr-6">Table of Contents</span>
+                <i class="fas fa-chevron-down transform transition-transform" :class="tocOpen ? 'rotate-180' : ''"></i>
+            </button>
+            
+            <nav x-show="tocOpen" x-transition class="space-y-2 text-sm">
+                <!-- Copy and paste these TOC links to match your article headings -->
+                <a href="#introduction" class="block text-gray-400 hover:text-dark-red transition-colors">Introduction</a>
+                <a href="#what" class="block text-gray-400 hover:text-dark-red transition-colors">What It Is</a>
+                <a href="#testing" class="block text-gray-400 hover:text-dark-red transition-colors">Some testing ideas</a>
+                <a href="#conclusion" class="block text-gray-400 hover:text-dark-red transition-colors">Conclusion</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Featured Image -->
+        <div class="mb-4">
+            <div class="aspect-video bg-dark-card rounded-lg border border-dark-border overflow-hidden">
+                <img src="../static/FastAPIBoilerplate.png" alt="" class="w-full h-full object-cover" style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%)" />
+            </div>
+        </div>
+            <p class="text-gray-400 text-sm mt-2 text-center">The post in question</p>
+        </div>
+
+        <!-- Article Content -->
+        <article class="prose prose-invert prose-lg max-w-none">
+            <!-- Copy and paste these content sections to build your blog post -->
+            
+            <section id="introduction">
+                <h2 class="text-3xl font-bold mb-6 text-white">Introduction</h2>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Today I was scrolling Reddit on the bus, doomscrolling on Reddit, when I saw a post on 
+                    <a href="https://www.reddit.com/r/FastAPI/comments/1lq5b3l/the_one_fastapi_boilerplate_to_rule_them_all/" class="text-dark-red" target="_blank">
+                        r/FastAPI titled “The one FastAPI boilerplate to rule them all”</a>. It was short and straight to the point: a GitHub repo with a production-ready FastAPI setup that promises to seriously cut down API dev time.
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Of course, I had to check it out.    
+                </p>
+            </section>
+
+            <section id="what" class="mt-12">
+                <h2 class="text-3xl font-bold mb-6 text-white">What It Is</h2>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    The project is the Benav Labs FastAPI Boilerplate, and it’s genuinely one of the most complete and practical templates I’ve come across. It gives you:    
+                </p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-2">
+                    <li>An async-first stack with FastAPI, Pydantic V2, SQLAlchemy 2.0, and PostgreSQL</li>
+                    <li>Background job queues via ARQ</li>
+                    <li>JWT auth with refresh tokens stored in cookies</li>
+                    <li>Rate limiting with tiered plans</li>
+                    <li>Redis caching (server-side + cache headers)</li>
+                    <li>Admin panel (CRUDAdmin) with session tracking</li>
+                    <li>Docker + NGINX setup for production deployment</li>
+                </ul>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    It's a very clean and complete project.    
+                </p>
+            </section>
+
+            <section id="testing">
+                <h2 class="text-3xl font-bold mb-6 text-white">Some testing ideas</h2>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    To really see what I can do with this thing, I’ve got a few testing ideas. A content publishing API with auth, post rate limiting, 
+                    Redis caching for latest content, and ARQ running background stuff like email alerts or scheduled posts would be a cool start.
+                </p>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Then an e-commerce microservice for testing tiered rate limits, using the admin panel for inventory, and offloading order processing 
+                    to background jobs.     
+                </p>
+                <p class="text-grey-300 mb-6 leading-relaxed">
+                    We could also test an analytics dashboard with heavy data coming in, PostgreSQL doing the heavy lifting, 
+                    caching on both the client and server, and async jobs generating reports in the background.
+                </p>
+            </section>
+
+            <section id="conclusion" class="mt-12">
+                <h2 class="text-3xl font-bold mb-6 text-white">Conclusion</h2>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    I’d love to see WebSocket or GraphQL support added later, but for REST APIs, this template is solid. It balances 
+                    speed, structure, and flexibility.
+                </p>
+                
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    Here’s the repo if you wanna check it out:
+                </p>
+                <ul class="list-disc list-inside text-gray-300 mb-6 space-y-2">
+                    <li>👉 <a href="https://github.com/benavlabs/FastAPI-boilerplate" class="text-dark-red">GitHub</a></li>
+                    <li>📘 <a href="https://benavlabs.github.io/FastAPI-boilerplate/" class="text-dark-red">Documentation</a></li>
+                </ul>
+                <p class="text-gray-300 mb-6 leading-relaxed">
+                    If you try it, or you’re building something with it, drop me a message, I’m curious what others are doing with it.
+                </p>
+            </section>
+        </article>
+
+            <!-- Back to Blog Link -->
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8">
+            <a href="../blog.html" class="inline-flex items-center text-gray-400 hover:text-dark-red transition-colors">
+                <i class="fas fa-arrow-left mr-2"></i>
+                Back to Blog
+            </a>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-dark-card border-t border-dark-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 Emiliano Gandini. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/emiliano-gandini-outeda" target="_blank" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/emiliano-gandini-outeda" target="_blank" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="../contact.html" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
