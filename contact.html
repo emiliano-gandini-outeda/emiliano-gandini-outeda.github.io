@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emiliano Gandini - Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-red': '#DC2626',
+                        'dark-bg': '#0F0F0F',
+                        'dark-card': '#1A1A1A',
+                        'dark-border': '#2A2A2A'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark-bg text-white min-h-screen" x-data="{ 
+    mobileMenuOpen: false,
+    formData: {
+        name: '',
+        email: '',
+        message: '',
+    },
+    isSubmitting: false,
+    showSuccessMessage: false,
+    
+    submitForm() {
+        // Basic validation
+        if (!this.formData.name || !this.formData.email || !this.formData.message) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        
+        this.isSubmitting = true;
+        // FormSubmit will handle the actual submission
+        // The success message will be shown via URL parameter or redirect
+    },
+    
+    checkForSuccess() {
+        // Check if we're returning from a successful submission
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            this.showSuccessMessage = true;
+            // Clean up URL
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    }
+}"
+@load.window="checkForSuccess()">
+    <!-- Navigation -->
+    <nav class="bg-dark-card border-b border-dark-border sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-xl font-bold text-dark-red">EG</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="projects.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Projects</a>
+                        <a href="blog.html" class="text-gray-300 hover:text-dark-red px-3 py-2 text-sm font-medium transition-colors">Blog</a>
+                        <a href="contact.html" class="text-dark-red px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-dark-card border-t border-dark-border">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Home</a>
+                <a href="projects.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Projects</a>
+                <a href="blog.html" class="text-gray-300 hover:text-dark-red block px-3 py-2 text-base font-medium transition-colors">Blog</a>
+                <a href="contact.html" class="text-dark-red block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Contact me</h1>
+        <p class="text-xl text-gray-400 max-w-2xl">
+            Want to contact me? I'd love to hear from you.
+        </p>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Information -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-8">Get in touch</h2>
+                
+                <div class="space-y-6 mb-12">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-dark-red bg-opacity-20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-envelope text-dark-red"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-sm">Email</p>
+                            <p class="text-white">emiliano.outeda@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-dark-red bg-opacity-20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-map-marker-alt text-dark-red"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-sm">Location</p>
+                            <p class="text-white">Uruguay</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-dark-red bg-opacity-20 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-clock text-dark-red"></i>
+                        </div>
+                        <div>
+                            <p class="text-gray-400 text-sm">Response Time</p>
+                            <p class="text-white">Usually within 48 hours</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect with me</h3>
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/emiliano-gandini-outeda" target="_blank" class="w-12 h-12 bg-dark-card border border-dark-border hover:border-dark-red rounded-lg flex items-center justify-center transition-colors">
+                            <i class="fab fa-linkedin text-gray-400 hover:text-dark-red transition-colors"></i>
+                        </a>
+                        <a href="https://github.com/emiliano-gandini-outeda" target="_blank" class="w-12 h-12 bg-dark-card border border-dark-border hover:border-dark-red rounded-lg flex items-center justify-center transition-colors">
+                            <i class="fab fa-github text-gray-400 hover:text-dark-red transition-colors"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <!-- Success Message -->
+            <div x-show="showSuccessMessage" x-transition class="mb-8">
+                <div class="bg-green-900 bg-opacity-20 border border-green-600 rounded-lg p-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-check-circle text-green-500 mr-3 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-green-400 mb-2">Message Sent Successfully!</h4>
+                            <p class="text-green-200 text-sm">
+                                Thank you for reaching out. I'll get back to you as soon as possible, usually within 24 hours.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-dark-card p-8 rounded-lg border border-dark-border">
+                <form 
+                    action="https://formsubmit.co/emiliano.outeda@gmail.com" 
+                    method="POST"
+                    class="space-y-6"
+                >
+                    <!-- FormSubmit Configuration (Hidden Fields) -->
+                    <input type="hidden" name="_subject" value="New Contact Form Message from Portfolio">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="basic">
+                    <input type="hidden" name="_next" value="https://emiliano-gandini-outeda.github.io/thank-you.html">
+                    <input type="hidden" name="_autoresponse" value="Thank you for sending a message! I'll reach you as soon as possible.">
+                    
+                    <!-- Honeypot for spam protection -->
+                    <input type="text" name="_honey" style="display:none">
+                    
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name *</label>
+                        <input 
+                            type="text" 
+                            id="name"
+                            name="name"
+                            x-model="formData.name"
+                            required
+                            class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+                            placeholder="Your full name"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email"
+                            name="email"
+                            x-model="formData.email"
+                            required
+                            class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+                            placeholder="your.email@example.com"
+                        >
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Message *</label>
+                        <textarea 
+                            id="message"
+                            name="message"
+                            x-model="formData.message"
+                            required
+                            rows="6"
+                            class="w-full bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors resize-none"
+                            placeholder="Leave feedback about the site, career opportunities or just to say hello etc."
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Additional Fields for Better Context -->
+                    <div class="grid grid-cols-1 gap-4">                        
+                        <div>
+                            <label for="company" class="block text-sm font-medium text-gray-300 mb-2">Company (Optional)</label>
+                            <input 
+                                type="text" 
+                                id="company"
+                                name="company"
+                                class="w-full h-16 bg-dark-bg border border-dark-border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-dark-red transition-colors"
+                                placeholder="Your company name"
+                            >
+                        </div>
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        :disabled="isSubmitting"
+                        :class="isSubmitting ? 'bg-gray-600 cursor-not-allowed' : 'bg-dark-red hover:bg-red-700'"
+                        class="w-full text-white px-6 py-3 rounded-lg font-medium transition-colors flex items-center justify-center"
+                    >
+                        <span x-show="!isSubmitting">Send Message</span>
+                        <span x-show="isSubmitting" class="flex items-center">
+                            <i class="fas fa-spinner fa-spin mr-2"></i>
+                            Sending...
+                        </span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-card border-t border-dark-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    © 2025 Emiliano Gandini. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="https://linkedin.com/in/emiliano-gandini-outeda" target="_blank" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/emiliano-gandini-outeda" target="_blank" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="contact.html" class="text-gray-400 hover:text-dark-red transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
