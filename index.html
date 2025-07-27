@@ -215,6 +215,11 @@
                         class="px-6 py-2 rounded-md font-medium transition-colors">
                     Education
                 </button>
+                <button @click="activeTab = 'books'" 
+                        :class="activeTab === 'books' ? 'bg-dark-red text-white' : 'text-gray-400 hover:text-white'"
+                        class="px-6 py-2 rounded-md font-medium transition-colors">
+                    Reads
+                </button>
             </div>
         </div>
 
@@ -235,6 +240,7 @@
 
         <!-- Education Tab -->
         <div x-show="activeTab === 'education'" x-transition class="space-y-8">
+            <!-- Copy and paste these Edu cards to add more -->
             <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
                 <div class="flex justify-between items-start mb-4">
                     <div>
@@ -244,12 +250,25 @@
                     <span class="text-sm text-gray-400">2025 - 2030</span>
                 </div>
                 <div class="space-y-2 text-gray-400">
-                    <p>• Relevant coursework: Data Structures, Algorithms, System Architecture</p>
+                    <p>Specilized in System Security, Data Structures, Algorithms and Architecture</p>
                 </div>
                 <div class="mt-4 space-x-4">
                     <button class="bg-dark-red hover:bg-red-700 text-white px-4 py-2 rounded-lg text-sm transition-colors">
                         Final Year Project (WIP)
                     </button>
+                </div>
+            </div>
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Baccalauréat Général spécialité Mathématiques, Physique-Chimie</h3>
+                        <p class="text-gray-300">Lycée Français Jules Supervielle</p>
+                    </div>
+                    <span class="text-sm text-gray-400">2010 - 2025</span>
+                </div>
+                <div class="space-y-2 text-gray-400">
+                    <p>• Specilization in Advanced Mathematics, Physics and Chemistry</p>
+                    <p>• French: native-level proficiency</p>
                 </div>
             </div>
             <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
@@ -264,6 +283,21 @@
                     <p>Small course that introduced me to Web Development</p>
                     <p>• Specialized in Functional Web Design</p>
                 </div>
+            </div>
+        </div>
+
+        <!--Books Tab-->
+        <div x-show="activeTab === 'books'" x-transition class="space-y-8">
+            <!-- Copy and paste these work experience cards to add more positions -->
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Founder</h3>
+                        <p class="text-gray-300">Eclipse Growth Optimization Services</p>
+                    </div>
+                    <span class="text-sm text-gray-400">May 2025 - Present</span>
+                </div>
+                <p class="text-gray-400">Leading development of scalable web applications for data analysis with Pandas.</p>
             </div>
         </div>
     </section>
