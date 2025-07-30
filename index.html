@@ -286,19 +286,179 @@
             </div>
         </div>
 
-        <!--Books Tab-->
-        <div x-show="activeTab === 'books'" x-transition class="space-y-8">
-            <!-- Copy and paste these work experience cards to add more positions -->
-            <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
-                <div class="flex justify-between items-start mb-4">
-                    <div>
-                        <h3 class="text-xl font-semibold text-dark-red">Founder</h3>
-                        <p class="text-gray-300">Eclipse Growth Optimization Services</p>
-                    </div>
-                    <span class="text-sm text-gray-400">May 2025 - Present</span>
+        <!-- Books Tab -->
+        <div x-show="activeTab === 'books'" x-transition>
+        <!-- Masonry layout using columns -->
+        <div class="columns-1 md:columns-2 gap-6 space-y-6">
+            
+            <!-- Book card -->
+            <div class="break-inside-avoid bg-dark-card p-6 rounded-lg border border-dark-border flex gap-6">
+                <!-- Image section -->
+                <div class="w-32 h-40 flex-shrink-0 border border-gray-600 rounded overflow-hidden bg-gray-800">
+                    <img 
+                    src="static/pythonCrashCourse.png" 
+                    alt="Python Crash Course" 
+                    class="w-full h-full object-cover"
+                    >
                 </div>
-                <p class="text-gray-400">Leading development of scalable web applications for data analysis with Pandas.</p>
+
+                <!-- Text content -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Python Crash Course</h3>
+                        <p class="text-gray-300">Eric Matthes</p>
+                    </div>
+                    <span class="text-sm text-gray-400">Read</span>
+                    </div>
+                    <p class="text-gray-400">
+                        A solid intro to Python that doesn’t waste time. It balances explanation and hands-on practice well, and the projects feel like real challenges at that stage of learning. The syntax and core concepts are covered clearly, without overcomplicating. 
+                         Would’ve liked a bit more depth on testing and structuring larger codebases, but for its scope, it delivers.
+                    </p>
+                </div>
             </div>
+            
+            <!-- Book card -->
+            <div class="break-inside-avoid bg-dark-card p-6 rounded-lg border border-dark-border flex gap-6">
+                <!-- Image section -->
+                <div class="w-32 h-40 flex-shrink-0 border border-gray-600 rounded overflow-hidden bg-gray-800">
+                    <img 
+                    src="static/pythonProgramming.png" 
+                    alt="Python Programming:  An Introduction to Computer Science" 
+                    class="w-full h-full object-cover"
+                    >
+                </div>
+
+                <!-- Text content -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Python Programming:  An Introduction to Computer Science</h3>
+                        <p class="text-gray-300">John Zelle</p>
+                    </div>
+                    <span class="text-sm text-gray-400">Read</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Slower paced, but really solid if you're after fundamentals. It leans more into CS concepts than just Python syntax, 
+                        which makes it great for understanding how things work under the surface.
+                         Not the fastest way to build something, but it gives you the right mental models early on.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Book card -->
+            <div class="break-inside-avoid bg-dark-card p-6 rounded-lg border border-dark-border flex gap-6">
+                <!-- Image section -->
+                <div class="w-32 h-40 flex-shrink-0 border border-gray-600 rounded overflow-hidden bg-gray-800">
+                    <img 
+                    src="static/django.png" 
+                    alt="Django 5 By Example" 
+                    class="w-full h-full object-cover"
+                    >
+                </div>
+
+                <!-- Text content -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Django 5 By Example</h3>
+                        <p class="text-gray-300">Antonio Melé</p>
+                    </div>
+                    <span class="text-sm text-gray-400">Read</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Very practical, straight into building real stuff. The examples are solid and scale up nicely,
+                         so you get a sense of how to structure bigger Django projects. Not much hand-holding,
+                          but if you already know Python, it's a great way to learn by doing. 
+                    </p>
+                </div>
+            </div>
+
+            <!-- Book card -->
+            <div class="break-inside-avoid bg-dark-card p-6 rounded-lg border border-dark-border flex gap-6">
+                <!-- Image section -->
+                <div class="w-32 h-40 flex-shrink-0 border border-gray-600 rounded overflow-hidden bg-gray-800">
+                    <img 
+                    src="static/pythonDataAnalysis.png" 
+                    alt="Python for Data Analysis" 
+                    class="w-full h-full object-cover"
+                    >
+                </div>
+
+                <!-- Text content -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Python for Data Analysis</h3>
+                        <p class="text-gray-300">Wes McKinney</p>
+                    </div>
+                    <span class="text-sm text-gray-400">Currently Reading</span>
+                    </div>
+                    <p class="text-gray-400">
+                    I’ve only made it through the first bit, but it’s already super practical. It doesn’t waste time on basics,
+                     it just jumps straight into pandas and real data work. 
+                    Feels dense at times, not a fast read.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Book card -->
+            <div class="break-inside-avoid bg-dark-card p-6 rounded-lg border border-dark-border flex gap-6">
+                <!-- Image section -->
+                <div class="w-32 h-40 flex-shrink-0 border border-gray-600 rounded overflow-hidden bg-gray-800">
+                    <img 
+                    src="static/pandaPatterns.png" 
+                    alt="Effective pandas Patterns for Data Manipulation" 
+                    class="w-full h-full object-cover"
+                    >
+                </div>
+
+                <!-- Text content -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">Effective pandas Patterns for Data Manipulation</h3>
+                        <p class="text-gray-300">Matt Harrison</p>
+                    </div>
+                    <span class="text-sm text-gray-400">Currently Reading</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Read about half of it, and it’s been really useful so far. It doesn’t teach pandas from the ground up, 
+                        but focuses on doing things more efficiently and cleanly.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Book card -->
+            <div class="break-inside-avoid bg-dark-card p-6 rounded-lg border border-dark-border flex gap-6">
+                <!-- Image section -->
+                <div class="w-32 h-40 flex-shrink-0 border border-gray-600 rounded overflow-hidden bg-gray-800">
+                    <img 
+                    src="static/unix.png" 
+                    alt="UNIX: A History and a Memoir" 
+                    class="w-full h-full object-cover"
+                    >
+                </div>
+
+                <!-- Text content -->
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-dark-red">UNIX: A History and a Memoir</h3>
+                        <p class="text-gray-300">Brian Kernighan</p>
+                    </div>
+                    <span class="text-sm text-gray-400">Read</span>
+                    </div>
+                    <p class="text-gray-400">
+                        It’s more historical than technical, but still a great read if you’re into how things came to be. Kernighan keeps it personal and clear,
+                        walking through UNIX’s development without getting too dense. 
+                        Not something you study from, but definitely worth reading to understand the roots of modern computing.
+                    </p>
+                </div>
+            </div>
+            <!-- Add more cards here -->
+
+        </div>
         </div>
     </section>
 
