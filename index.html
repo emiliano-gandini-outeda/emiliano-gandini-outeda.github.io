@@ -201,7 +201,7 @@
         </div>
     </section>
 
-    <!-- Work Experience Section -->
+    <!-- Tabs Section -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16" x-data="{ activeTab: 'work' }">
         <div class="flex justify-center mb-8">
             <div class="bg-dark-card rounded-lg p-1">
@@ -219,6 +219,11 @@
                         :class="activeTab === 'books' ? 'bg-dark-red text-white' : 'text-gray-400 hover:text-white'"
                         class="px-6 py-2 rounded-md font-medium transition-colors">
                     Reads
+                </button>
+                <button @click="activeTab = 'lang'" 
+                        :class="activeTab === 'lang' ? 'bg-dark-red text-white' : 'text-gray-400 hover:text-white'"
+                        class="px-6 py-2 rounded-md font-medium transition-colors">
+                    Languages
                 </button>
             </div>
         </div>
@@ -268,7 +273,7 @@
                 </div>
                 <div class="space-y-2 text-gray-400">
                     <p>• Specilization in Advanced Mathematics, Physics and Chemistry</p>
-                    <p>• French: native-level proficiency</p>
+                    <p>• French: C2 proficiency</p>
                 </div>
             </div>
             <div class="bg-dark-card p-6 rounded-lg border border-dark-border">
@@ -487,6 +492,32 @@
             <!-- Add more cards here -->
 
         </div>
+        </div>
+
+        <!-- Languages Tab -->
+        <div x-show="activeTab === 'lang'" x-transition>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Spanish -->
+                <div class="bg-dark-card p-6 rounded-2xl border border-dark-border text-center shadow-md hover:shadow-red-500/30 transition-all duration-300 group">
+                    <img src="static/es.svg" alt="Spanish flag" class="w-16 h-10 mx-auto mb-4 rounded-sm transition-transform duration-300 group-hover:scale-110" />
+                    <h3 class="text-2xl font-bold text-white mb-1">Spanish</h3>
+                    <p class="text-sm text-gray-400 italic">Native speaker</p>
+                </div>
+
+                <!-- French -->
+                <div class="bg-dark-card p-6 rounded-2xl border border-dark-border text-center shadow-md hover:shadow-red-500/30 transition-all duration-300 group">
+                    <img src="static/fr.svg" alt="French flag" class="w-16 h-10 mx-auto mb-4 rounded-sm transition-transform duration-300 group-hover:scale-110" />
+                    <h3 class="text-2xl font-bold text-white mb-1">French</h3>
+                    <p class="text-sm text-gray-400 italic">C2 – Mastery</p>
+                </div>
+
+                <!-- English -->
+                <div class="bg-dark-card p-6 rounded-2xl border border-dark-border text-center shadow-md hover:shadow-red-500/30 transition-all duration-300 group">
+                    <img src="static/gb.svg" alt="English flag" class="w-16 h-10 mx-auto mb-4 rounded-sm transition-transform duration-300 group-hover:scale-110" />
+                    <h3 class="text-2xl font-bold text-white mb-1">English</h3>
+                    <p class="text-sm text-gray-400 italic">C2 – Mastery</p>
+                </div>
+            </div>
         </div>
     </section>
 
