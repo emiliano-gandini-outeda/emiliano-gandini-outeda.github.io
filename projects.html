@@ -150,27 +150,9 @@
                 </div>
                 
                 <div class="flex space-x-4 mt-auto">
-                    <div 
-                        x-data="{ showTooltip: false }" 
-                        class="relative inline-block"
-                        @mouseenter="showTooltip = true" 
-                        @mouseleave="showTooltip = false"
-                    >
-                        <a 
-                            class="text-gray-400 hover:text-white font-medium transition-colors line-through cursor-not-allowed"
-                        >
-                            <i class="fab fa-github mr-1"></i>Source
-                        </a>
-                        
-                        <!-- Tooltip -->
-                        <div 
-                            x-show="showTooltip" 
-                            x-transition 
-                            class="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-max bg-gray-800 text-sm text-white px-3 py-1 rounded-lg shadow-lg z-10 whitespace-nowrap"
-                        >
-                            Source code is private due to Privacy
-                        </div>
-                    </div>
+                    <a href="https://github.com/emiliano-gandini-outeda/InsightGrid-V2" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
+                        <i class="fab fa-github mr-1"></i>Source
+                    </a>
                     <div 
                         x-data="{ showTooltip: false }" 
                         class="relative inline-block"
@@ -250,6 +232,27 @@
                             Demo Not Available
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="bg-dark-card p-6 rounded-lg border border-dark-border hover:border-dark-red transition-colors group flex flex-col">
+                <div class="aspect-video bg-dark-bg rounded-lg mb-4 flex items-center justify-center overflow-hidden border border-dark-border group-hover:border-dark-red transition-colors">
+                    <div class="relative inline-block">
+                        <i class="fas fa-file-excel text-4xl text-green-700"></i>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold mb-3 group-hover:text-dark-red transition-colors">.xlsx Converter</h3>
+                <p class="text-gray-400 mb-4 flex-grow">A small set of Python scripts to process sales, debt, balance, and inventory data from Excel and CSV files, with a simple Flask web interface. My first project using pandas</p>
+                
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 text-white px-2 py-1 rounded text-xs">Python</span>
+                    <span class="bg-blue-600 text-white px-2 py-1 rounded text-xs">PostgreSQL</span>
+                </div>
+                
+                <div class="flex space-x-4 mt-auto">
+                    <a href="https://github.com/emiliano-gandini-outeda/xlsx_converter" target="_blank" class="text-gray-400 hover:text-white font-medium transition-colors">
+                        <i class="fab fa-github mr-1"></i>Source
+                    </a>
                 </div>
             </div>
 
